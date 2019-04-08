@@ -1,1 +1,26 @@
-<h1>It works</h1>
+<h3>Add New Person</h3>
+<form method="POST" action="/person/add">
+    <input type="text" name="name" placeholder="Name">
+    <input type="submit" value="Submit">
+</form>
+
+<h3>People</h3>
+<ul>
+<% persons.forEach(person => { %>
+    <li><%= person.name %></li>
+<% }) %>
+</ul>
+
+<h3>Add New Location</h3>
+<form method="POST" action="/location/add">
+    <input type="text" name="name" placeholder="City">
+    <input type="text" name="state" placeholder="State">
+    <input type="submit" value="Submit">
+</form>
+
+<h3>Locations</h3>
+<ul>
+<% locations.forEach(location => { %>
+    <li><%= location.name %>, <%= location.state %></li>
+<% }) %>
+</ul>
