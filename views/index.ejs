@@ -1,21 +1,23 @@
+<% include ../views/partials/header %>
+
 <h3>Add New Person</h3>
 <form method="POST" action="/person/add">
     <input type="text" name="name" placeholder="Name">
-    <input type="submit" value="Submit">
+    <input type="submit" value="Submit" class="btn btn-secondary btn-sm">
 </form>
 
 <h3>Add New Location</h3>
 <form method="POST" action="/location/add">
     <input type="text" name="name" placeholder="City">
     <input type="text" name="state" placeholder="State">
-    <input type="submit" value="Submit">
+    <input type="submit" value="Submit" class="btn btn-secondary btn-sm">
 </form>
 
 <h3>Connect Friends</h3>
 <form method="POST" action="/friends/connect">
     <input type="text" name="name1" placeholder="Name">
     <input type="text" name="name2" placeholder="Name">
-    <input type="submit" value="Submit">
+    <input type="submit" value="Submit" class="btn btn-secondary btn-sm">
 </form>
 
 <h3>Add Birthplace</h3>
@@ -24,7 +26,7 @@
     <input type="text" name="name2" placeholder="City">
     <input type="text" name="state" placeholder="State">
     <input type="text" name="year" placeholder="Year">
-    <input type="submit" value="Submit">
+    <input type="submit" value="Submit" class="btn btn-secondary btn-sm">
 </form>
 
 
@@ -41,3 +43,5 @@
     <li><%= location.name %>, <%= location.state %></li>
 <% }) %>
 </ul>
+
+<% include ../views/partials/footer %>

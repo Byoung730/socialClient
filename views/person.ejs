@@ -1,3 +1,5 @@
+<% include ../views/partials/header %>
+
 <%= name %>
 
 Birthplace: <%= city %>, <%= state %>
@@ -7,3 +9,5 @@ Birthplace: <%= city %>, <%= state %>
         <li><a href="/person/<%= person.id %>"><%= person.name %></a></li>
     <% }); %>
 </ul>
+
+<% include ../views/partials/footer %>
