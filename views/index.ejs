@@ -4,19 +4,36 @@
     <input type="submit" value="Submit">
 </form>
 
-<h3>People</h3>
-<ul>
-<% persons.forEach(person => { %>
-    <li><%= person.name %></li>
-<% }) %>
-</ul>
-
 <h3>Add New Location</h3>
 <form method="POST" action="/location/add">
     <input type="text" name="name" placeholder="City">
     <input type="text" name="state" placeholder="State">
     <input type="submit" value="Submit">
 </form>
+
+<h3>Connect Friends</h3>
+<form method="POST" action="/friends/connect">
+    <input type="text" name="name1" placeholder="Name">
+    <input type="text" name="name2" placeholder="Name">
+    <input type="submit" value="Submit">
+</form>
+
+<h3>Add Birthplace</h3>
+<form method="POST" action="/person/born/add">
+    <input type="text" name="name1" placeholder="Name">
+    <input type="text" name="name2" placeholder="City">
+    <input type="text" name="state" placeholder="State">
+    <input type="text" name="year" placeholder="Year">
+    <input type="submit" value="Submit">
+</form>
+
+
+<h3>People</h3>
+<ul>
+<% persons.forEach(person => { %>
+    <li><a href="/person/<%= person.id %>"><%= person.name %></a></li>
+<% }) %>
+</ul>
 
 <h3>Locations</h3>
 <ul>
