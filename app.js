@@ -165,7 +165,6 @@ app.get("/person/:id", (req, res) => {
               const friendsArr = [];
 
               result3.records.forEach(record => {
-                console.log(record);
                 if (record._fields[0] !== null) {
                   friendsArr.push({
                     id: record._fields[0].identity.low,
