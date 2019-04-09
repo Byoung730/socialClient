@@ -1,47 +1,74 @@
 <% include ../views/partials/header %>
 
-<h3>Add New Person</h3>
-<form method="POST" action="/person/add">
+<div class="container">
+<a class="btn btn-primary" data-toggle="collapse" href="#addperson" role="button" aria-expanded="false" aria-controls="addperson" style="margin-top:2rem;">
+    Add New Person
+  </a>
+<div class="collapse" id="addperson">
+  <div class="card card-body" style="margin-top:1rem;">
+  <h3>Add New Person</h3>
+<form method="POST" action="/person/add" style="margin-top:1rem;">
     <input type="text" name="name" placeholder="Name">
     <input type="submit" value="Submit" class="btn btn-secondary btn-sm">
 </form>
+</div></div>
 
+<a class="btn btn-primary" data-toggle="collapse" href="#addlocation" role="button" aria-expanded="false" aria-controls="addlocation" style="margin-top:2rem;">
+    Add New Location
+  </a>
+<div class="collapse" id="addlocation">
+  <div class="card card-body" style="margin-top:1rem;">
 <h3>Add New Location</h3>
-<form method="POST" action="/location/add">
+<form method="POST" action="/location/add" style="margin-top:1rem;">
     <input type="text" name="name" placeholder="City">
     <input type="text" name="state" placeholder="State">
     <input type="submit" value="Submit" class="btn btn-secondary btn-sm">
 </form>
+</div></div>
 
+<a class="btn btn-primary" data-toggle="collapse" href="#connectfriends" role="button" aria-expanded="false" aria-controls="connectfriends" style="margin-top:2rem;">
+    Connect Friends
+  </a>
+<div class="collapse" id="connectfriends">
+  <div class="card card-body" style="margin-top:1rem;">
 <h3>Connect Friends</h3>
-<form method="POST" action="/friends/connect">
+<form method="POST" action="/friends/connect" style="margin-top:1rem;">
     <input type="text" name="name1" placeholder="Name">
     <input type="text" name="name2" placeholder="Name">
     <input type="submit" value="Submit" class="btn btn-secondary btn-sm">
 </form>
+</div></div>
 
-<h3>Add Birthplace</h3>
-<form method="POST" action="/person/born/add">
+<a class="btn btn-primary" data-toggle="collapse" href="#addbirthplace" role="button" aria-expanded="false" aria-controls="addbirthplace" style="margin-top:2rem;">
+    Add Birthplace
+  </a>
+<div class="collapse" id="addbirthplace">
+  <div class="card card-body" style="margin-top:1rem;">
+<h3 style="margin-top:2rem;">Add Birthplace</h3>
+<form method="POST" action="/person/born/add" style="margin-top:1rem;">
     <input type="text" name="name1" placeholder="Name">
     <input type="text" name="name2" placeholder="City">
     <input type="text" name="state" placeholder="State">
     <input type="text" name="year" placeholder="Year">
     <input type="submit" value="Submit" class="btn btn-secondary btn-sm">
 </form>
+</div></div>
 
+<h3 style="margin-top:2rem;">People</h3>
+<div class="container">
+<div class="row">
+    <% persons.forEach(person => { %>
+        <div class="card col-2 py-3 border bg-light"><i class="fa fa-user"><a href="/person/<%= person.id %>">&nbsp;&nbsp;<%= person.name %></a></i></div>
+    <% }) %>
+</div></div>
 
-<h3>People</h3>
-<ul>
-<% persons.forEach(person => { %>
-    <li><a href="/person/<%= person.id %>"><%= person.name %></a></li>
-<% }) %>
-</ul>
-
-<h3>Locations</h3>
-<ul>
+<h3 style="margin-top:2rem;">Locations</h3>
+<div class="container">
+<div class="row">
 <% locations.forEach(location => { %>
-    <li><%= location.name %>, <%= location.state %></li>
+<div class="card col-2 py-3 border bg-light"><i class="fa fa-map-marker">&nbsp;&nbsp;&nbsp;<%= location.name %>, <%= location.state %></i></div>
 <% }) %>
-</ul>
+</div></div>
+<div>
 
 <% include ../views/partials/footer %>

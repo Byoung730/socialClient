@@ -1,13 +1,22 @@
 <% include ../views/partials/header %>
+<div class="container">
+<a class="btn btn-primary btn-sm" href="/" style="margin-top:1rem;">Go Back</a>
 
-<%= name %>
+<h1><i class="fa fa-user" style="margin-top:1rem;">&nbsp;<%= name %></i></h1>
+<% if (city) { %>
+<h4><i class="fa fa-map-marker">&nbsp;&nbsp;Birthplace: <%= city %>, <%= state %></i></h4>
+<% } %>
 
-Birthplace: <%= city %>, <%= state %>
-
-<ul>
+<h4 style="margin-top:1rem;">Friends</h4>
+<% if (friends.length > 0) { %>
+<ul class="list-group">
     <% friends.forEach(person => { %>
-        <li><a href="/person/<%= person.id %>"><%= person.name %></a></li>
+        <li class="list-group-item"><i class="fa fa-smile-o"><a href="/person/<%= person.id %>">&nbsp;&nbsp;<%= person.name %></a></i></li>
     <% }); %>
 </ul>
+<% } else { %>
+    <h4>Make some friends!</h4>
+<% } %>
+</div>
 
 <% include ../views/partials/footer %>
