@@ -4,6 +4,7 @@ const logger = require("morgan");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const neo4j = require("neo4j-driver").v1;
+const PASSWORD = require("./hidden");
 
 const app = express();
 
@@ -18,7 +19,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 const driver = neo4j.driver(
   "bolt://localhost",
-  neo4j.auth.basic("neo4j", "Dominic1")
+  neo4j.auth.basic("neo4j", PASSWORD)
 );
 const session = driver.session();
 
