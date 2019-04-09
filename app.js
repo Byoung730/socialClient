@@ -86,6 +86,7 @@ app.post("/location/add", (req, res) => {
 app.post("/friends/connect", (req, res) => {
   const name1 = req.body.name1;
   const name2 = req.body.name2;
+  const id = req.body.id;
 
   session
     .run(
@@ -96,7 +97,11 @@ app.post("/friends/connect", (req, res) => {
       }
     )
     .then(result => {
-      res.redirect("/");
+      if (id && id !== null) {
+        res.redirect("/person/" + id);
+      } else {
+        res.redirect("/");
+      }
       session.close;
     })
     .catch(e => console.log(e));
@@ -108,6 +113,7 @@ app.post("/person/born/add", (req, res) => {
   const name2 = req.body.name2;
   const state = req.body.state;
   const year = req.body.year;
+  const id = req.body.id;
 
   session
     .run(
@@ -120,7 +126,11 @@ app.post("/person/born/add", (req, res) => {
       }
     )
     .then(result => {
-      res.redirect("/");
+      if (id && id !== null) {
+        res.redirect("/person/" + id);
+      } else {
+        res.redirect("/");
+      }
       session.close;
     })
     .catch(e => console.log(e));

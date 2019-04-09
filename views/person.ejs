@@ -17,6 +17,26 @@
 <% } else { %>
     <h4>Make some friends!</h4>
 <% } %>
+
+<h3 style="margin-top:1rem;">Add Friend</h3>
+<form method="POST" action="/friends/connect" style="margin-top:1rem;">
+    <input type="hidden" name="name1" value="<%= name %>">
+    <input type="hidden" name="id" value="<%= id %>">
+    <input type="text" name="name2" placeholder="Name">
+    <input type="submit" value="Submit" class="btn btn-secondary btn-sm">
+</form>
+
+<% if (!city) { %>
+<h3 style="margin-top:1rem;">Add Birthplace</h3>
+<form method="POST" action="/person/born/add" style="margin-top:1rem;">
+    <input type="hidden" name="name1" value="<%= name %>">
+    <input type="hidden" name="id" value="<%= id %>">
+    <input type="text" name="name2" placeholder="City">
+    <input type="text" name="state" placeholder="State">
+    <input type="text" name="year" placeholder="Year">
+    <input type="submit" value="Submit" class="btn btn-secondary btn-sm">
+</form>
+<% } %>
 </div>
 
 <% include ../views/partials/footer %>
